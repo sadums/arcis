@@ -10,9 +10,11 @@ export default function Home() {
     <main className="min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:via-[#111] dark:to-black dark:text-white font-sans transition-colors duration-300">
       {/* Header */}
       <header className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm px-6 md:px-12">
-        <h1 className="text-xl md:text-2xl font-semibold tracking-wide uppercase leading-none">
-          ARCIS
-        </h1>
+        <a href="/">
+          <h1 className="text-xl md:text-2xl font-semibold tracking-widest uppercase">
+            ARCIS
+          </h1>
+        </a>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex space-x-8 text-sm font-medium text-gray-700 dark:text-gray-400 tracking-wide">
@@ -106,7 +108,7 @@ export default function Home() {
             Precision. Security. Power.
           </h2>
           <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-700 dark:text-gray-400 font-light tracking-wide leading-relaxed">
-            Arcis is a Utah-based SDVOSB contractor delivering elite solutions to the United States government.
+            Arcis is a Utah-based veteran-owned contractor delivering elite solutions to the United States government.
           </p>
           <div className="mt-12">
             <a
@@ -118,11 +120,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      {/* Footer */}
-      <footer className="text-center py-6 text-gray-500 dark:text-gray-400 text-xs border-t border-gray-200 dark:border-gray-800">
-        &copy; {new Date().getFullYear()} Arcis. All rights reserved.
-      </footer>
     </main>
   );
 }

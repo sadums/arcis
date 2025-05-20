@@ -10,6 +10,7 @@ interface FormData {
 }
 
 export default function ContactPage() {
+    const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     fullName: '',
     email: '',
@@ -62,22 +63,74 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:via-[#111] dark:to-black dark:text-white font-sans flex flex-col transition-colors duration-300">
       {/* Header */}
-      <header className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm">
+      <header className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm px-6 md:px-12">
         <a href="/">
           <h1 className="text-xl md:text-2xl font-semibold tracking-widest uppercase">
             ARCIS
           </h1>
         </a>
-        <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium text-gray-600 dark:text-gray-400">
-          <a href="/" className="hover:text-black dark:hover:text-white transition">
+        {/* Desktop nav */}
+        <nav className="hidden md:flex space-x-8 text-sm font-medium text-gray-700 dark:text-gray-400 tracking-wide">
+          <a href="/" className="hover:text-black dark:hover:text-white transition normal-case">
             Home
           </a>
-          <a href="/about" className="hover:text-black dark:hover:text-white transition">
+          <a href="/about" className="hover:text-black dark:hover:text-white transition normal-case">
             About
           </a>
         </nav>
-      </header>
 
+        {/* Mobile nav toggle */}
+        <button
+          className="md:hidden text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            {menuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+      </header>
+{/* Mobile menu */}
+{menuOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="md:hidden flex flex-col items-start space-y-3 px-6 py-4 border-b border-gray-200 dark:border-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 bg-white dark:bg-black"
+        >
+            <a
+            href="/"
+            className="hover:text-black dark:hover:text-white transition normal-case"
+          >
+            Home
+          </a>
+          <a
+            href="/about"
+            className="hover:text-black dark:hover:text-white transition normal-case"
+          >
+            About
+          </a>
+          
+        </motion.div>
+      )}
       {/* Contact Form Section */}
       <section className="flex-1 px-4 sm:px-6 py-20 max-w-2xl mx-auto w-full">
         <motion.div
@@ -199,11 +252,6 @@ export default function ContactPage() {
           </form>
         </motion.div>
       </section>
-
-      {/* Footer */}
-      <footer className="text-center py-6 text-gray-500 text-xs border-t border-gray-200 dark:border-gray-800">
-        &copy; {new Date().getFullYear()} ARCIS. All rights reserved.
-      </footer>
     </main>
   );
 }
