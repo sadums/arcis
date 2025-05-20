@@ -7,22 +7,22 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#111] to-black text-white font-sans">
+    <main className="min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:via-[#111] dark:to-black dark:text-white font-sans transition-colors duration-300">
       {/* Header */}
-      <header className="p-6 flex justify-between items-center border-b border-gray-800 backdrop-blur-sm">
-        <h1 className="text-xl md:text-2xl font-semibold tracking-widest text-white uppercase">
+      <header className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm">
+        <h1 className="text-xl md:text-2xl font-semibold tracking-widest uppercase">
           ARCIS
         </h1>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium text-gray-400">
-          <a href="#about" className="hover:text-white transition">About</a>
-          <a href="#contact" className="hover:text-white transition">Contact</a>
+        <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium text-gray-600 dark:text-gray-400">
+          <a href="#about" className="hover:text-black dark:hover:text-white transition">About</a>
+          <a href="/contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
         </nav>
 
         {/* Mobile nav toggle */}
         <button
-          className="md:hidden text-gray-400 hover:text-white"
+          className="md:hidden text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -42,11 +42,11 @@ export default function Home() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden flex flex-col items-start space-y-2 px-6 py-4 border-b border-gray-800 text-sm uppercase font-medium text-gray-400 bg-black"
+          className="md:hidden flex flex-col items-start space-y-2 px-6 py-4 border-b border-gray-200 dark:border-gray-800 text-sm uppercase font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-black"
         >
-          <a href="#services" className="hover:text-white transition">Services</a>
-          <a href="#about" className="hover:text-white transition">About</a>
-          <a href="#contact" className="hover:text-white transition">Contact</a>
+          <a href="#services" className="hover:text-black dark:hover:text-white transition">Services</a>
+          <a href="#about" className="hover:text-black dark:hover:text-white transition">About</a>
+          <a href="#contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
         </motion.div>
       )}
 
@@ -75,16 +75,16 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight text-white mb-6">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
             Precision. Security. Power.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-400 font-light tracking-wide">
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-700 dark:text-gray-400 font-light tracking-wide">
             Arcis is a Utah-based SDVOSB contractor delivering elite solutions to the United States government.
           </p>
           <div className="mt-10 sm:mt-12">
             <a
-              href="#contact"
-              className="inline-block px-6 sm:px-8 py-3 border border-gray-700 text-xs sm:text-sm uppercase tracking-widest font-semibold text-white hover:bg-white hover:text-black transition-colors duration-300"
+              href="/contact"
+              className="inline-block px-6 sm:px-8 py-3 border border-gray-400 dark:border-gray-700 text-xs sm:text-sm uppercase tracking-widest font-semibold text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300"
             >
               Contact Us
             </a>
@@ -93,8 +93,8 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center py-6 text-gray-500 text-xs border-t border-gray-800">
-        &copy; {new Date().getFullYear()} ARCIS. All rights reserved.
+      <footer className="text-center py-6 text-gray-500 dark:text-gray-400 text-xs border-t border-gray-200 dark:border-gray-800">
+        &copy; {new Date().getFullYear()} Arcis. All rights reserved.
       </footer>
     </main>
   );
