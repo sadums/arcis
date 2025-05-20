@@ -14,7 +14,7 @@ export default function ContactPage() {
         </a>
         <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium text-gray-600 dark:text-gray-400">
           <a href="/" className="hover:text-black dark:hover:text-white transition">Home</a>
-          <a href="#about" className="hover:text-black dark:hover:text-white transition">About</a>
+          <a href="/about" className="hover:text-black dark:hover:text-white transition">About</a>
         </nav>
       </header>
 

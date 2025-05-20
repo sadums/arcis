@@ -16,7 +16,7 @@ export default function Home() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium text-gray-600 dark:text-gray-400">
-          <a href="#about" className="hover:text-black dark:hover:text-white transition">About</a>
+          <a href="/about" className="hover:text-black dark:hover:text-white transition">About</a>
           <a href="/contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
         </nav>
 
