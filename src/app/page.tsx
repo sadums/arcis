@@ -9,28 +9,46 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black dark:bg-gradient-to-br dark:from-[#0a0a0a] dark:via-[#111] dark:to-black dark:text-white font-sans transition-colors duration-300">
       {/* Header */}
-      <header className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm">
-        <h1 className="text-xl md:text-2xl font-semibold tracking-widest uppercase">
+      <header className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-800 backdrop-blur-sm px-6 md:px-12">
+        <h1 className="text-xl md:text-2xl font-semibold tracking-wide uppercase leading-none">
           ARCIS
         </h1>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex space-x-8 text-sm uppercase font-medium text-gray-600 dark:text-gray-400">
-          <a href="/about" className="hover:text-black dark:hover:text-white transition">About</a>
-          <a href="/contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
+        <nav className="hidden md:flex space-x-8 text-sm font-medium text-gray-700 dark:text-gray-400 tracking-wide">
+          <a href="/about" className="hover:text-black dark:hover:text-white transition normal-case">
+            About
+          </a>
+          <a href="/contact" className="hover:text-black dark:hover:text-white transition normal-case">
+            Contact
+          </a>
         </nav>
 
         {/* Mobile nav toggle */}
         <button
-          className="md:hidden text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white"
+          className="md:hidden text-gray-700 dark:text-gray-400 hover:text-black dark:hover:text-white"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
             {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             )}
           </svg>
         </button>
@@ -42,26 +60,35 @@ export default function Home() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden flex flex-col items-start space-y-2 px-6 py-4 border-b border-gray-200 dark:border-gray-800 text-sm uppercase font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-black"
+          className="md:hidden flex flex-col items-start space-y-3 px-6 py-4 border-b border-gray-200 dark:border-gray-800 text-sm font-medium text-gray-700 dark:text-gray-400 bg-white dark:bg-black"
         >
-          <a href="#services" className="hover:text-black dark:hover:text-white transition">Services</a>
-          <a href="#about" className="hover:text-black dark:hover:text-white transition">About</a>
-          <a href="#contact" className="hover:text-black dark:hover:text-white transition">Contact</a>
+          <a
+            href="/about"
+            className="hover:text-black dark:hover:text-white transition normal-case"
+          >
+            About
+          </a>
+          <a
+            href="/contact"
+            className="hover:text-black dark:hover:text-white transition normal-case"
+          >
+            Contact
+          </a>
         </motion.div>
       )}
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden text-center py-24 md:py-36 px-4 sm:px-6">
+      <section className="relative overflow-hidden text-center py-24 md:py-36 px-4 sm:px-6 max-w-4xl mx-auto">
         {/* Abstract SVG Background */}
         <div
-          className="absolute inset-0 z-0 opacity-10 pointer-events-none"
+          className="absolute inset-0 z-0 opacity-20 pointer-events-none"
           aria-hidden="true"
         >
           <svg width="100%" height="100%">
             <defs>
               <radialGradient id="cyber-glow" cx="50%" cy="50%" r="75%">
-                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.02" />
-                <stop offset="100%" stopColor="#00ffff" stopOpacity="0" />
+                <stop offset="0%" stopColor="#00ffff" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#000000" stopOpacity="0" />
               </radialGradient>
             </defs>
             <rect width="100%" height="100%" fill="url(#cyber-glow)" />
@@ -78,13 +105,13 @@ export default function Home() {
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
             Precision. Security. Power.
           </h2>
-          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-700 dark:text-gray-400 font-light tracking-wide">
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-700 dark:text-gray-400 font-light tracking-wide leading-relaxed">
             Arcis is a Utah-based SDVOSB contractor delivering elite solutions to the United States government.
           </p>
-          <div className="mt-10 sm:mt-12">
+          <div className="mt-12">
             <a
               href="/contact"
-              className="inline-block px-6 sm:px-8 py-3 border border-gray-400 dark:border-gray-700 text-xs sm:text-sm uppercase tracking-widest font-semibold text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300"
+              className="inline-block px-8 py-4 border border-gray-400 dark:border-gray-700 text-sm uppercase tracking-widest font-semibold text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-colors duration-300 rounded-md"
             >
               Contact Us
             </a>
